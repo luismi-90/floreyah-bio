@@ -1,0 +1,217 @@
+/* ===== VARIABLES DE MARCA ===== */
+:root {
+    --color-bg: #FDFBF7;
+    --color-green-dark: #1A4D2E;
+    --color-green-olive: #4F6F52;
+    --color-pink-pastel: #FAD4D8;
+    --color-pink-light: #FFF0F2;
+    --color-white: #FFFFFF;
+    
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-green-dark);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.floral-decor {
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+    animation: floating 6s ease-in-out infinite;
+}
+
+.decor-top-left {
+    top: -50px;
+    left: -50px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%234F6F52" d="M10,50 C40,10 90,10 90,90 C60,50 10,90 10,50 Z"/></svg>');
+    transform: rotate(30deg);
+}
+
+.decor-bottom-right {
+    bottom: -50px;
+    right: -50px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23FAD4D8" d="M10,50 C40,10 90,10 90,90 C60,50 10,90 10,50 Z"/></svg>');
+    transform: rotate(-150deg);
+    animation-delay: -3s;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo-wrapper {
+    margin-bottom: 1.2rem;
+    animation: fadeInScale 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.logo {
+    width: 100%;
+    max-width: 280px; /* Le da el ancho perfecto para un logo horizontal */
+    height: auto;     /* Permite que mantenga su proporción original */
+    object-fit: contain;
+    background-color: transparent;
+    /* Eliminamos el border-radius para que no se corte en círculo */
+}
+
+.brand-name {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--color-green-dark);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+    animation: fadeInUp 1s ease forwards 0.2s;
+    opacity: 0;
+}
+
+.tagline {
+    font-size: 1.05rem;
+    color: var(--color-green-dark);
+    margin-bottom: 0.4rem;
+    font-style: italic;
+    font-family: var(--font-serif);
+    animation: fadeInUp 1s ease forwards 0.4s;
+    opacity: 0;
+}
+
+.status-tag {
+    font-size: 0.8rem;
+    color: var(--color-green-olive);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    animation: fadeInUp 1s ease forwards 0.6s;
+    opacity: 0;
+}
+
+.links-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1.2rem 1.5rem;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-pink-pastel);
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--color-green-dark);
+    box-shadow: 0 4px 15px rgba(250, 212, 216, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0;
+    animation: slideUpFade 0.8s ease forwards;
+}
+
+.social-btn:nth-child(1) { animation-delay: 0.7s; }
+.social-btn:nth-child(2) { animation-delay: 0.85s; }
+.social-btn:nth-child(3) { animation-delay: 1.0s; }
+.social-btn:nth-child(4) { animation-delay: 1.15s; }
+
+@media (hover: hover) {
+    .social-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(79, 111, 82, 0.15);
+        border-color: var(--color-green-olive);
+        background-color: var(--color-pink-light);
+    }
+    
+    .social-btn:hover .icon-container i {
+        transform: scale(1.15);
+        color: var(--color-green-dark);
+    }
+}
+
+.social-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(79, 111, 82, 0.1);
+}
+
+.icon-container {
+    width: 45px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.icon-container i {
+    font-size: 1.8rem;
+    color: var(--color-green-olive);
+    transition: all 0.3s ease;
+}
+
+.btn-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.btn-content h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.btn-content p {
+    font-size: 0.8rem;
+    color: var(--color-green-olive);
+    font-weight: 400;
+}
+
+@keyframes fadeInScale {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { transform: translateY(15px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUpFade {
+    0% { transform: translateY(25px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes floating {
+    0%, 100% { transform: translate(0, 0) rotate(var(--rotation, 30deg)); }
+    50% { transform: translate(5px, 15px) rotate(var(--rotation, 32deg)); }
+}
